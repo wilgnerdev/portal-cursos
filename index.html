@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <title>Pão dos Pobres</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="nav-social">
+            <nav>
+                <a href="https://www.facebook.com/paodospobres" target="_blank"><img src="img/facebook.png" alt="Página do Facebook da Fundação O Pão dos Pobres"></a>
+                <a href="https://www.linkedin.com/company/fundacao-pao-dos-pobres" target="_blank"><img src="img/linkedin.png" alt="Página do Linkedin da Fundação O Pão dos Pobres"></a>
+                <a href="https://www.youtube.com/channel/UCRcI7jAkBA8TSzFRFHqW1tQ" target="_blank"><img src="img/youtube.png" alt="Página do Youtube da Fundação O Pão dos Pobres"></a>
+                <a href="https://www.instagram.com/fundacaopaodospobres" target="_blank"><img src="img/instagram.png" alt="Página do Instagram da Fundação O Pão dos Pobres"></a>
+            </nav>
+        </div>
+
+        <nav>
+            <a class="logo" href="/"><img src="img/logo-pao-dos-pobres.png" alt=""></a>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="/">Ínicio</a></li>
+                <li><a href="/">Sobre</a></li>
+                <li><a href="/">Projetos</a></li>
+                <li><a href="/">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main></main>
+
+    <script>
+        class MobileNavbar {
+    constructor (mobileMenu, navList, navLinks) {
+         this.mobileMenu = document.querySelector(mobileMenu);
+         this.navList = document.querySelector(navList)
+         this.navLinks = document.querySelectorAll(navLinks)
+         this.activeClass = "active";
+
+         this.handleClick = this.handleClick.bind(this);
+    }
+
+    animateLinks() {
+        this.navLinks.forEach((link, index) => {
+            link.style.animation
+            ? (link.style.animation = "")
+            : (link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`);
+        });
+    }
+
+    handleClick() {
+        this.navList.classList.toggle(this.activeClass);
+        this.mobileMenu.classList.toggle(this.activeClass);
+        this.animateLinks();
+    }
+
+    addClickEvent() {
+        this.mobileMenu.addEventListener("click", this.handleClick);
+    }
+
+    init () {
+        if (this.mobileMenu) {
+            this.addClickEvent();
+        }
+        return this;
+    }
+}
+
+const mobileNavbar = new MobileNavbar(
+    ".mobile-menu",
+    ".nav-list",
+    ".nav-list li",
+);
+mobileNavbar.init();
+    </script>
+</body>
+</html>
