@@ -4,6 +4,11 @@
     font-family: "Outfit", sans-serif;
 }
 
+.page-wrapper {
+        overflow-x: hidden;    
+        position: relative;
+    }
+
 :root {
   /* Cores Principais (Identidade) */
   --azul-pao: rgb(0, 56, 117);          /* Azul oficial do logo e cabeçalhos */
@@ -118,12 +123,8 @@ main {
 }
 
 @media (max-width: 999px) {
-    html, body {
-        overflow-x: hidden;    
-    }
-
     .nav-list {
-        position: absolute;
+        position: fixed;
         top: 21vh;
         right: 0;
         background: var(--fundo-off-white);
@@ -177,7 +178,7 @@ main {
 
 @media (max-width: 855px) {
     .nav-list {
-        position: absolute;
+        position: fixed;
         top: 21vh;
         right: 0;
         background: var(--fundo-off-white);
